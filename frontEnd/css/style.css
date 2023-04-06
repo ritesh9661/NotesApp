@@ -1,36 +1,44 @@
-BODY{
-    background-color: rgba(227, 231, 28, 0.472);
+body {
+  color: white;
+  background-color: rgb(0, 0, 0);
 }
 
-
-.container{
-    border: 2px solid rgba(255, 0, 0, 0.888);
-    width: 50%;
-    background-color: rgba(206, 53, 53, 0.716);
-}
-.display_title{
-    font-size: 32px;
-}
-.cards{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    min-height: 10rem;
-    background-color: rgba(111, 240, 240, 0.476);
-    /* border: 2px solid rgb(40, 224, 202); */
-    border-radius: 4px;
+.container {
+  border: 2px solid rgba(255, 0, 0, 0.888);
+  width: 50%;
+  background-color: rgba(206, 53, 53, 0.716);
 }
 
-.add_button{
-    border: none;
-    border-radius: 2px ;
-    background-color: rgb(255, 0, 0);
-    height: 3rem;
-    font-size: 24px;
-    margin: 2px;
-    color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-   
+.display_title {
+  font-size: 32px;
 }
 
-.add_button:hover{
-    color: black;
+.cards {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  min-height: 10rem;
+  background-color: rgba(111, 240, 240, 0.714);
+  border-radius: 4px;
+}
+
+.cards:hover {
+  background-color: rgba(111, 240, 240, 0.851);
+}
+
+.add_button {
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(255, 0, 0);
+  height: 3rem;
+  font-size: 24px;
+  margin: 2px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.add_button:hover {
+  color: black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
