@@ -11,11 +11,18 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
-    <div class="container rounded-2 text-center">
+    <div class="container justify-content-between rounded-2 text-center overflow-scroll">
       <h1>Notes</h1>
       <div
         class="row d-flex flex-column align-items-center justify-content-center"
@@ -24,20 +31,20 @@
         <textarea
           name=""
           id="dec"
-          cols="30"
-          rows="10"
+          cols="20"
+          rows="5"
           placeholder="Description....."
         ></textarea>
-        <button id="enter" class="add_button w-50" onclick="add(event)">
+        <button id="enter" class="add_button w-50" onclick="add()">
           Add..
         </button>
       </div>
+      <div
+        id="display"
+        class="d-flex row gap-1 text-wrap justify-content-center"
+      ></div>
     </div>
-    <div
-      id="display"
-      class="d-flex row gap-1 text-wrap justify-content-center"
-    ></div>
 
-    <script src="./script/main.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
