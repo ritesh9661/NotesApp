@@ -4,6 +4,7 @@ import {
   getNotes,
   updateNote,
   deleteNote,
+  getNoteById
 } from "../controller/notesController.mjs";
 
 const route = express.Router();
@@ -14,7 +15,8 @@ route.get("/", function (req, res) {
 
 route.post("/notes/create", createNote);
 route.get("/notes/get", getNotes);
-route.put("/notes/update", updateNote);
+route.get('/notes/:id', getNoteById);
+route.put("/notes/update/:id", updateNote);
 route.delete("/notes/delete/:id", deleteNote);
 
 export default route;

@@ -13,7 +13,7 @@ export const createNote = async (req, res) => {
     if (createNote) {
       res.status(200).json({
         success: true,
-        message: "Created",
+        message: "Created successfully",
       });
     }
   } catch (error) {
@@ -28,7 +28,7 @@ export const getNotes = async (req, res) => {
     if (notes) {
       res.status(200).json({
         success: true,
-        message: "Notes fetched!",
+        message: "Notes fetched !",
         data: notes,
       });
     }
@@ -37,10 +37,37 @@ export const getNotes = async (req, res) => {
   }
 };
 
+export const getNoteById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const note = await notesSchema.findById(id);
+
+    if (note) {
+      res.status(200).json({
+        success: true,
+        message: "Note fetched successfully!",
+        data: note,
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: "Note Not found!",
+        data: null,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 export const updateNote = async (req, res) => {
   try {
-    const { id, title, content } = req.params;
+    const { id } = req.params;
+    const {title, content} =req.body;
     const note = await notesSchema.findById(id);
     if (note) {
       note.title = title || note.title;
@@ -48,7 +75,8 @@ export const updateNote = async (req, res) => {
       await note.save();
       res.status(200).json({
         success: true,
-        message: "Note Updated!",
+        message: "Note Updated successfully!",
+        data:note,
       });
     }
   } catch (error) {
@@ -64,7 +92,7 @@ export const deleteNote = async (req, res) => {
     if (deleted) {
       res.status(200).json({
         success: true,
-        message: "Note Deleted!",
+        message: "Note Deleted successfully",
       });
     }
   } catch (error) {

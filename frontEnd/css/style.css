@@ -1,48 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Nunito:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap");
 body {
-  background-color: #1f271b;
+  background-color: #cdb4db;
   color: #ffffff;
+  font-family: "Alkatra", cursive;
 }
 .page1_content {
-    padding:0 1rem 0 1rem  ;
+  font-family: "Alkatra", cursive;
+  padding: 0 1rem 0 1rem;
   padding-top: 55vh;
   opacity: 1;
 }
+.hii {
+  background-color: #000000;
+}
+
+.heading{
+  font-size: 60px;
+  padding: 1rem;
+  background: rgb(24,23,41);
+background: linear-gradient(90deg, rgba(24,23,41,1) 0%, rgba(48,48,168,1) 54%, rgba(102,229,255,1) 100%);
+}
 
 .page1 {
-    color: white;
-    background-image: url("../img/image2.jpeg");
+  color: white;
+  background-image: url("../img/im.jpeg");
+backface-visibility: var(-18px);
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 25rem;
   height: 100vh;
 }
-.container {
-  border: 2px solid rgba(252, 226, 226, 0.888);
-  max-width: 25rem;
-  height: 100vh;
-  background-color: #042d3b;
-}
-
 .display_title {
   font-size: 32px;
 }
 
 .cards {
-  box-shadow: rgba(48, 42, 74, 0.3) 0px 18px 36px -18px inset,
-    rgba(0, 0, 0, 0.25) 0px 30px 60px -12px inset;
+  color: #1f271b;
   min-height: 10rem;
-  background-color:#000000;
-  border-radius: 4px;
+  border-radius: 0.7rem;
+  background: #fde2e4;
 }
-
 .cards:hover {
-  background-color: rgba(151, 249, 249, 0.851);
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .add_button {
   border: none;
   border-radius: 2px;
-  background-color:#bfacb5;
+background-color: #ffc8dd;
   height: 3rem;
   font-size: 24px;
   margin: 2px;
@@ -55,4 +62,17 @@ body {
   color: black;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.del_btn {
+  background: rgb(174, 233, 238);
+  background: radial-gradient(
+    circle,
+    rgba(174, 233, 238, 1) 0%,
+    rgba(153, 148, 233, 1) 100%
+  );
+}
+
+.hide {
+  display: none;
 }

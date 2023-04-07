@@ -4,7 +4,7 @@ import routes from "./routes/routes.mjs";
 import mongoose from "mongoose";
 
 const app = express();
-const url ="mongodb+srv://ritesh:riteshkumar@cluster0.wx0ngt6.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://ritesh:riteshkumar@cluster0.wx0ngt6.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 8002;
 
 app.use(express.json());
