@@ -1,8 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Nunito:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap");
-body {
-  background-color: #cdb4db;
+.body {
+  /* background: #200122; 
+  background: -webkit-linear-gradient(
+    to right,
+    #6f0000,
+    #200122
+  ); 
+  background: linear-gradient(
+    to right,
+    #6f0000,
+    #200122
+  ); */
+color: #eadfdfcd;
+  background-color: #000000;
+
   color: #ffffff;
   font-family: "Alkatra", cursive;
+}
+
+.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+
+/* button handling */
+
+.moon {
+  display: block;
+}
+
+.sun {
+  display: none;
+}
+
+.dark-mode .moon {
+  display: none;
+}
+
+.dark-mode .sun {
+  display: block;
 }
 .page1_content {
   font-family: "Alkatra", cursive;
@@ -14,17 +54,16 @@ body {
   background-color: #000000;
 }
 
-.heading{
+.heading {
   font-size: 60px;
   padding: 1rem;
-  background: rgb(24,23,41);
-background: linear-gradient(90deg, rgba(24,23,41,1) 0%, rgba(48,48,168,1) 54%, rgba(102,229,255,1) 100%);
+  flex-wrap: nowrap;
 }
 
 .page1 {
   color: white;
   background-image: url("../img/im.jpeg");
-backface-visibility: var(-18px);
+  backface-visibility: var(-18px);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -34,12 +73,16 @@ backface-visibility: var(-18px);
 }
 
 .cards {
-  color: #1f271b;
   min-height: 10rem;
   border-radius: 0.7rem;
-  background: #fde2e4;
+  background: #232526;
+  /* background: -webkit-linear-gradient(to right, #414345, #232526);
+  background: linear-gradient(to right, #414345, #232526); */
+
+  /* border: 1px solid white; */
 }
 .cards:hover {
+  background-color: #eb990a;
   transform: scale(1.1);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -49,7 +92,7 @@ backface-visibility: var(-18px);
 .add_button {
   border: none;
   border-radius: 2px;
-background-color: #ffc8dd;
+  background-color: #eb990a;
   height: 3rem;
   font-size: 24px;
   margin: 2px;
@@ -66,13 +109,33 @@ background-color: #ffc8dd;
 
 .del_btn {
   background: rgb(174, 233, 238);
-  background: radial-gradient(
-    circle,
-    rgba(174, 233, 238, 1) 0%,
-    rgba(153, 148, 233, 1) 100%
-  );
+  /* background: rgb(255, 255, 255); */
+
+  border: none;
+}
+
+.del_btn:hover {
+  background: white;
 }
 
 .hide {
   display: none;
+}
+
+.delConform {
+  position: fixed;
+  height: 100%;
+  width : 100%;
+  top: 12%;
+  z-index: 1;
+  visibility: collapse;
+  backdrop-filter: blur(10px);
+}
+.delConformBox{
+  
+  margin: 10% auto;
+  height: 13rem;
+}
+.visible {
+  visibility: visible;
 }

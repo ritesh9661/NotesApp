@@ -1,3 +1,4 @@
+import { baseError } from "../errorHandeling.mjs";
 import notesSchema from "../models/note.mjs";
 
 export const createNote = async (req, res) => {
@@ -18,6 +19,7 @@ export const createNote = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    next(new baseError("page not found",404,null,false));
     res.status(400).json({ message: error.message });
   }
 };
