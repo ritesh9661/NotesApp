@@ -1,7 +1,6 @@
-import { baseError } from "../errorHandeling.mjs";
-import notesSchema from "../models/note.mjs";
+import notesSchema from "../models/schema.js";
 
-export const createNote = async (req, res) => {
+export const createNote = async (req, res, next) => {
   try {
     const { title, content, isImportant } = req.body;
 
@@ -10,7 +9,6 @@ export const createNote = async (req, res) => {
       content,
       isImportant,
     });
-
     if (createNote) {
       res.status(200).json({
         success: true,
@@ -18,9 +16,7 @@ export const createNote = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
-    next(new baseError("page not found",404,null,false));
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
@@ -39,12 +35,10 @@ export const getNotes = async (req, res) => {
   }
 };
 
-export const getNoteById = async (req, res) => {
+export const getNoteById = async (req, res, next) => {
   try {
     const { id } = req.params;
-
     const note = await notesSchema.findById(id);
-
     if (note) {
       res.status(200).json({
         success: true,
@@ -59,14 +53,11 @@ export const getNoteById = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
-export const updateNote = async (req, res) => {
+export const updateNote = async (req, res, next) => {
   try {
     const { id } = req.params;
     const {title, content} =req.body;
@@ -82,14 +73,13 @@ export const updateNote = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
-export const deleteNote = async (req, res) => {
+export const deleteNote = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const deleted = await notesSchema.findByIdAndDelete(id);
     if (deleted) {
       res.status(200).json({
@@ -98,6 +88,6 @@ export const deleteNote = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };

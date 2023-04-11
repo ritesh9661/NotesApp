@@ -15,7 +15,7 @@ const getAllNotes = () => {
         const apiId = json.data[i]._id;
         document.getElementById(
           "display"
-        ).innerHTML += `<div class="cards col-10  col-md-3  text-center  ">
+        ).innerHTML += `<div class="cards col-10  col-md-3  text-center  " id="cards">
            <div class="display_title ">${json.data[i].title}</div>
           <div class="text-start d-flex   justify-content-between align-items-center overflow-scroll text-wrap"><div>${json.data[i].content}</div>
          <div class="d-flex flex-column  col-3 gap-2">
@@ -132,26 +132,30 @@ function update(id,title,desc) {
 
 getAllNotes();
 
-let togbtn = true;
-document.getElementById("dark").addEventListener('click',()=>{
-  if(togbtn){
-    document.querySelector('body').style.backgroundColor = "#d7b4b4cd";
-    document.querySelector('body').style.color = "black";
-    document.querySelectorAll('.cards').forEach((item)=>{
-      item.style.backgroundColor = "#eadfdfcd";
-      item.style.color = "black";
-    });
-    document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-sun" style="color:white"></i>`;
-    togbtn = false;
-  } else {
-    document.querySelector('.body').style.backgroundColor = "black";
-    document.querySelector('body').style.color = "white";
-    document.querySelectorAll('.cards').forEach((item)=>{
-      item.style.backgroundColor = "#e29578";
-    }); 
-   
-    document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-moon" style="color:white"></i>`;
-    togbtn = true;
-  }
+// let togbtn = true;
+// // document.getElementById("dark").addEventListener('click',()=>
+// function dark(){
+//   if(togbtn){
+//     document.querySelector('body').style.backgroundColor = "#d7b4b4cd";
+//     document.querySelector('body').style.color = "black";
+//     document.querySelectorAll('#cards').forEach((item)=>{
+//       item.classList.remove('cards');
+//       item.classList.add('cardslight');
+//     }); 
+//     document.querySelector('.input').style.color = "black";
+//     document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-moon" style="color:white"></i>`;
+//     togbtn = false;
+//   } else {
+//     document.querySelector('.body').style.backgroundColor = "black";
+//     document.querySelector('body').style.color = "white";
+//     document.querySelectorAll('#cards').forEach((item)=>{
+//       item.classList.add('cards');
+//       item.classList.remove('cardslight');
+//     }); 
+//     document.querySelector('.input').style.color = "white";
+
+//     document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-sun" style="color:white"></i>`;
+//     togbtn = true;
+//   }
   
-})
+// }
