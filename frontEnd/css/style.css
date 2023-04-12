@@ -1,16 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Nunito:ital,wght@0,400;0,500;1,300;1,400;1,500&display=swap");
 .body {
-  /* background: #200122; 
-  background: -webkit-linear-gradient(
-    to right,
-    #6f0000,
-    #200122
-  ); 
-  background: linear-gradient(
-    to right,
-    #6f0000,
-    #200122
-  ); */
 color: #eadfdfcd;
   background-color: #000000;
 
@@ -25,9 +14,6 @@ color: #eadfdfcd;
 .invert {
   filter: invert(1) hue-rotate(180deg);
 }
-
-
-/* button handling */
 
 .moon {
   display: block;
@@ -120,8 +106,6 @@ color: #eadfdfcd;
 
 .del_btn {
   background: rgb(174, 233, 238);
-  /* background: rgb(255, 255, 255); */
-
   border: none;
 }
 
@@ -149,4 +133,8 @@ color: #eadfdfcd;
 }
 .visible {
   visibility: visible;
+}
+
+.err-message{
+  color: rgb(8, 221, 8);
 }

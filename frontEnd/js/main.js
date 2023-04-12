@@ -3,7 +3,7 @@ let deleteNote = document.getElementById("deleteNote");
 const api = "http://localhost:8002/notes";
 let ids;
 let deleteId = null;
-const delConform = document.querySelector('.delConform');
+const delConform = document.querySelector(".delConform");
 
 const getAllNotes = () => {
   fetch("http://localhost:8002/notes/get")
@@ -15,7 +15,7 @@ const getAllNotes = () => {
         const apiId = json.data[i]._id;
         document.getElementById(
           "display"
-        ).innerHTML += `<div class="cards col-10  col-md-3  text-center  " id="cards">
+        ).innerHTML += `<div class="cards col-10  col-md-3  text-center  ">
            <div class="display_title ">${json.data[i].title}</div>
           <div class="text-start d-flex   justify-content-between align-items-center overflow-scroll text-wrap"><div>${json.data[i].content}</div>
          <div class="d-flex flex-column  col-3 gap-2">
@@ -27,29 +27,28 @@ const getAllNotes = () => {
       }
     });
 };
- 
-function del(i){
+getAllNotes();
+
+function del(i) {
   deleteId = i;
-  delConform.classList.add('visible');
+  delConform.classList.add("visible");
 }
 
 function cancelDelete() {
-  delConform.classList.remove('visible');
+  delConform.classList.remove("visible");
 }
 
 function confirmDelete() {
-  
-    fetch(`http://localhost:8002/notes/delete/${deleteId}`, {
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        document.getElementById("message").innerHTML = `${json.message}`;
-      });
-      delConform.classList.remove('visible');
-    getAllNotes();
-  
+  fetch(`http://localhost:8002/notes/delete/${deleteId}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      document.getElementById("message").innerHTML = `${json.message}`;
+    });
+  delConform.classList.remove("visible");
+  getAllNotes();
 }
 
 function add() {
@@ -89,73 +88,33 @@ function add() {
   }
 }
 
-function getNoteById(i) {
-  fetch(`http://localhost:8002/notes/${i}`)
+async function getNoteById(i) {
+  await fetch(`http://localhost:8002/notes/${i}`)
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      const notesID = json.data._id;
-      const title = json.data.title;
-      const desc = json.data.content;
-      console.log(title);
-      update(notesID,title,desc);
+      document.getElementById("title").value = json.data.title;
+      document.getElementById("dec").value = json.data.content;
     });
-}
-function update(id,title,desc) {
-  document.getElementById("enter").classList.add("hide");
+  document.getElementById("update").setAttribute("onclick", `update('${i}')`);
   document.getElementById("update").classList.remove("hide");
-  document.getElementById("title").value=title;
-  document.getElementById("dec").value=desc;
-  document
-    .getElementById("update")
-    .addEventListener("click", async function () {
-      await fetch(`http://localhost:8002/notes/update/${id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          title: document.getElementById("title").value,
-          content: document.getElementById("dec").value,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }) .then((response) => response.json())
-      .then((json) => {
-        document.getElementById("message").innerHTML = `${json.message}`;
-      });
-      document.getElementById("title").value = "";
-      document.getElementById("dec").value = "";
-      getAllNotes();
-      document.getElementById("enter").classList.remove("hide");
-      document.getElementById("update").classList.add("hide");
-    });
+  document.getElementById("enter").classList.add("hide");
 }
 
-getAllNotes();
-
-// let togbtn = true;
-// // document.getElementById("dark").addEventListener('click',()=>
-// function dark(){
-//   if(togbtn){
-//     document.querySelector('body').style.backgroundColor = "#d7b4b4cd";
-//     document.querySelector('body').style.color = "black";
-//     document.querySelectorAll('#cards').forEach((item)=>{
-//       item.classList.remove('cards');
-//       item.classList.add('cardslight');
-//     }); 
-//     document.querySelector('.input').style.color = "black";
-//     document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-moon" style="color:white"></i>`;
-//     togbtn = false;
-//   } else {
-//     document.querySelector('.body').style.backgroundColor = "black";
-//     document.querySelector('body').style.color = "white";
-//     document.querySelectorAll('#cards').forEach((item)=>{
-//       item.classList.add('cards');
-//       item.classList.remove('cardslight');
-//     }); 
-//     document.querySelector('.input').style.color = "white";
-
-//     document.querySelector("#dark").innerHTML = `<i class="dark fa-solid fa-sun" style="color:white"></i>`;
-//     togbtn = true;
-//   }
-  
-// }
+async function update(id) {
+  await fetch(`http://localhost:8002/notes/update/${id}`, {
+    method: "PUT",
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+    body: JSON.stringify({
+      title: document.getElementById("title").value,
+      content: document.getElementById("dec").value,
+    }),
+  })
+    .then((res) => {
+      getAllNotes();
+    })
+    .catch((err) => console.log(err));
+  document.getElementById("title").value = "";
+  document.getElementById("dec").value = "";
+  document.getElementById("update").classList.add("hide");
+  document.getElementById("enter").classList.remove("hide");
+}

@@ -25,21 +25,20 @@
     </div>
   </div>
   <div class="container  justify-content-between text-center overflow-scroll">
-    <h1 class="heading d-flex justify-content-center " >
-      <img src="./img/note-light-svgrepo-com.svg" alt="" class="px-5" /> Notes<div>
-        <button id="dark" class="btn px-5" onclick="dark()"><i class="dark fa-solid fa-sun" style="color:white"></i></button>
+    <h1 class="heading " >
+      <img src="./img/note-light-svgrepo-com.svg" alt="" /> Notes<div>
       </div>
     </h1>
     <div class="row d-flex flex-column align-items-center justify-content-center">
-      <input type="text" name=""  class="bg-transparent text-light input col-10 col-md-5 border-light" id="title" placeholder="Title..." />
-      <textarea name="" id="dec" cols="20" rows="4" class="bg-transparent text-light col-10 col-md-5 input border-light" placeholder="Description....."></textarea>
+      <input type="text" name="" class="bg-transparent text-light col-10 col-md-5 border-light" id="title" placeholder="Title..." />
+      <textarea name="" id="dec" cols="20" rows="5" class="bg-transparent text-light col-10 col-md-5  border-light" placeholder="Description....."></textarea>
       <button id="enter" class="my-3 add_button col-6 col-md-3" onclick="add()">
         Create..
       </button>
       <button id="update" class="my-3 add_button col-6 col-md-3 hide">
         Update..
       </button>
-      <div class="p-2 text-success" id="message">Write Your Notes</div>
+      <div class="p-2 err-message fs-3" id="message">Write Your Notes</div>
     </div>
     <div id="display" class="d-flex row gap-2 text-light text-wrap justify-content-center"></div>
    

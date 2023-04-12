@@ -63,7 +63,7 @@ export const updateNote = async (req, res, next) => {
     const {title, content} =req.body;
     const note = await notesSchema.findById(id);
     if (note) {
-      note.title = title || note.title;
+      note.title = title || note.title ;
       note.content = content || note.content;
       await note.save();
       res.status(200).json({
