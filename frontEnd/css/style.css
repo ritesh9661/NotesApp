@@ -7,37 +7,11 @@ color: #eadfdfcd;
   font-family: "Alkatra", cursive;
 }
 
-.dark-mode {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-.invert {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-.moon {
-  display: block;
-}
-
-.sun {
-  display: none;
-}
-
-.dark-mode .moon {
-  display: none;
-}
-
-.dark-mode .sun {
-  display: block;
-}
 .page1_content {
   font-family: "Alkatra", cursive;
   padding: 0 1rem 0 1rem;
   padding-top: 55vh;
   opacity: 1;
-}
-.hii {
-  background-color: #000000;
 }
 
 .heading {
@@ -48,7 +22,8 @@ color: #eadfdfcd;
 
 .page1 {
   color: white;
-  background-image: url("../img/im.jpeg");
+  background-color: #000000;
+  background-image: url("../img/output-onlinepngtools.png");
   backface-visibility: var(-18px);
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,21 +39,6 @@ color: #eadfdfcd;
   background: #232526;
 }
 .cards:hover {
-  background-color: #eb990a;
-  transform: scale(1.1);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.cardslight{
-  min-height: 10rem;
-  border-radius: 0.7rem;
-  background: #eadfdfcd;
-  color: #232526;
-}
-
-.cardslight:hover{
   background-color: #eb990a;
   transform: scale(1.1);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
