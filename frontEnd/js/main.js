@@ -108,11 +108,13 @@ async function update(id) {
       title: document.getElementById("title").value,
       content: document.getElementById("dec").value,
     }),
-  })
+  }).then((res) => res.json())
     .then((res) => {
       getAllNotes();
+      document.getElementById("message").innerHTML = `${res.message}`;
     })
     .catch((err) => console.log(err));
+
   document.getElementById("title").value = "";
   document.getElementById("dec").value = "";
   document.getElementById("update").classList.add("hide");
