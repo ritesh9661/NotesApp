@@ -15,7 +15,7 @@ const getAllNotes = () => {
         const apiId = json.data[i]._id;
         document.getElementById(
           "display"
-        ).innerHTML += `<div class="cards col-10  col-md-3  text-center  ">
+        ).innerHTML += `<div class="cards col-10  col-md-3  text-center" id="${apiId}">
            <div class="display_title ">${json.data[i].title}</div>
           <div class="text-start d-flex   justify-content-between align-items-center overflow-scroll text-wrap"><div>${json.data[i].content}</div>
          <div class="d-flex flex-column  col-3 gap-2">
@@ -98,6 +98,8 @@ async function getNoteById(i) {
   document.getElementById("update").setAttribute("onclick", `update('${i}')`);
   document.getElementById("update").classList.remove("hide");
   document.getElementById("enter").classList.add("hide");
+  document.getElementById(`${i}`).classList.add("update_card");
+  document.getElementById(`${i}`).classList.remove("cards");
 }
 
 async function update(id) {
@@ -108,7 +110,8 @@ async function update(id) {
       title: document.getElementById("title").value,
       content: document.getElementById("dec").value,
     }),
-  }).then((res) => res.json())
+  })
+    .then((res) => res.json())
     .then((res) => {
       getAllNotes();
       document.getElementById("message").innerHTML = `${res.message}`;
@@ -119,4 +122,6 @@ async function update(id) {
   document.getElementById("dec").value = "";
   document.getElementById("update").classList.add("hide");
   document.getElementById("enter").classList.remove("hide");
+  document.getElementById(`${id}`).classList.remove("update_card");
+  document.getElementById(`${id}`).classList.add("cards");
 }

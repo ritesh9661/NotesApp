@@ -14,6 +14,7 @@ route.get("/", function (req, res) {
 });
 
 route.post("/notes/create", createNote);
+
 route.get("/notes/get", getNotes);
 route.get("/notes/:id", getNoteById);
 route.put("/notes/update/:id", updateNote);
